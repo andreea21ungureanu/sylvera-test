@@ -6,7 +6,7 @@ export const ProjectsList = () => {
   return (
     <ul
       role="list of projects"
-      className="divide-y divide-gray-100 overflow-hidden bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl mt-6"
+      className="divide-y divide-gray-100 overflow-hidden bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl mt-8"
     >
       {data.map((item) => (
         <li
