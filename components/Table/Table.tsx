@@ -1,14 +1,8 @@
-const TABLE_HEADERS = [
-  "no.",
-  "Device ID",
-  "Latitude",
-  "Longitude",
-  "Time of entry",
-];
+import { TableDetails } from "@/types/TableDetails";
 
-const data = [1, 2, 3];
+const TABLE_HEADERS = ["Device ID", "Latitude", "Longitude", "Time of entry"];
 
-export const Table = () => {
+export const Table = ({ tableDetails }: { tableDetails: TableDetails[] }) => {
   return (
     <div className="mt-8 flow-root ">
       <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -29,22 +23,19 @@ export const Table = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
-                {data.map((item) => (
-                  <tr key={item}>
-                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                      {item}
+                {tableDetails.map(({ device_id, gps_lat, gps_lon, time }) => (
+                  <tr key={device_id}>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                      {device_id}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {item}
+                      {gps_lat}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {item}
+                      {gps_lon}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {item}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {item}
+                      {time}
                     </td>
                   </tr>
                 ))}

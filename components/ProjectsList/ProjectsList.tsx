@@ -1,3 +1,4 @@
+import { capilatiseFirstLetter } from "@/lib/capitaliseFirstLetter";
 import { getAllProjects } from "@/lib/getAllProjects";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
@@ -18,7 +19,7 @@ export async function ProjectsList() {
             <p className="text-sm font-semibold leading-6 text-gray-900">
               <Link href={`projects/${project}/details`}>
                 <span className="absolute inset-x-0 -top-px bottom-0" />
-                {project[0].toUpperCase() + project.substring(1)}
+                {capilatiseFirstLetter(project)}
               </Link>
             </p>
           </div>
