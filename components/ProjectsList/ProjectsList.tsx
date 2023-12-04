@@ -1,24 +1,25 @@
+import { getAllProjects } from "@/lib/getAllProjects";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
-const data = [1, 2, 3];
-
-export const ProjectsList = () => {
+export async function ProjectsList() {
+  const projects = await getAllProjects();
   return (
     <ul
       role="list of projects"
-      className="divide-y divide-gray-100 overflow-hidden bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl mt-8"
+      className="min-w-[50%] divide-y divide-gray-100 overflow-hidden bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl mt-8"
     >
-      {data.map((item) => (
+      {projects.map((project) => (
         <li
-          key={item}
+          key={project}
           className="relative flex justify-between gap-x-6 px-4 py-5 hover:bg-gray-50 sm:px-6"
         >
           <div className="flex min-w-0 gap-x-4">
             <p className="text-sm font-semibold leading-6 text-gray-900">
-              <a href={item.toString()}>
+              <Link href={`projects/${project}/details`}>
                 <span className="absolute inset-x-0 -top-px bottom-0" />
-                {item}
-              </a>
+                {project[0].toUpperCase() + project.substring(1)}
+              </Link>
             </p>
           </div>
           <div className="flex items-center gap-x-4">
@@ -31,4 +32,4 @@ export const ProjectsList = () => {
       ))}
     </ul>
   );
-};
+}

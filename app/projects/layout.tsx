@@ -19,6 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             src="/Banner-test.png"
             alt={"Banner image of an abtract map"}
             fill
+            priority
             className="object-cover"
           />
           <h1 className="z-10 text-7xl ">Projects</h1>
