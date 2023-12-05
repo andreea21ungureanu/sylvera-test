@@ -23,7 +23,7 @@ export async function fetchProjectDeviceDetails(
       `https://pm25.lass-net.org/API-1.0.0/project/${project}/latest/`
     );
 
-    const projectDetails = request.json();
+    const projectDetails = await request.json();
     return projectDetails;
   } catch (error) {
     console.error("Fetch error", error);
