@@ -23,11 +23,11 @@ Below you can find some of the technical details regarding the project from wire
 
 ### How it works
 1. Main page
-Navigating to `https://sylvera-test.vercel.app/projects` reveals the page which contains a list of all the available projects.
+- Navigating to `https://sylvera-test.vercel.app/projects` reveals the page which contains a list of all the available projects.
 
-1. Details page
-When clicking on any of this projects in the list, the application redirects the user to `https://sylvera-test.vercel.app/projects/{project_name}/details`. Here, the number of entries in the table are displayed alongside with other relevant details about the project and each of the top 10 entries.
-You can you the `Return to projects` button to navigate back to the main page.
+2. Details page
+- When clicking on any of this projects in the list, the application redirects the user to `https://sylvera-test.vercel.app/projects/{project_name}/details`. Here, the number of entries in the table are displayed alongside with other relevant details about the project and each of the top 10 entries.
+- You can you the `Return to projects` button to navigate back to the main page.
 
 ### Wireframes
 The following wireframes have been created and used in order to get a better visualisation of the application.
@@ -49,8 +49,7 @@ The components are tagged semantically depending on the type of component they r
 ### Data Handling
 The data comes from [https://pm25.lass-net.org/API-1.0.0/project/all/](https://pm25.lass-net.org/API-1.0.0/project/all/). 
 
-The pages are statically rendered since the data is updated infrequently. This means that the pages are cached.
-
+The fetch requests are cached using the Next.js data cache. The revalidation period is set to 24 hours to ensure the data updates from the API infrequently.
 
 ### Error
 Error handling is set for two main cases:
@@ -64,8 +63,9 @@ Example tests have been added for two type of components:
 
 ### Further steps
 The application is fully functional, but there are few improvements that come to mind:
-1. More focus on loading states
-2. More focus on the mobile version of the application
-3. "Personalising" the project details page by padding in the project name
-
+1. Pagination for projects on the list page and entries on the details page
+2. Data revalidation for more frequently updating data
+3. Improve design
+4. More focus on loading states
+5. More focus on the mobile version of the application
 
