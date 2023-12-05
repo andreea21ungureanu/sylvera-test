@@ -1,4 +1,4 @@
-import { Feed, ProjectDetails } from "@/types/ProjectDetails";
+import { Feed } from "@/types/ProjectDetails";
 import { fetchAllProjects, fetchProjectDeviceDetails } from "./data";
 import { TableDetails } from "@/types/TableDetails";
 
