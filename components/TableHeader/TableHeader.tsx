@@ -1,39 +1,16 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
-import { getProjectDetails } from "../../lib/getAllProjects";
+import React from "react";
 
 type TableHeaderProps = {
   title: string;
   description: string;
-  projectName: string;
+  projectNumbers: number;
 };
 
 export const TableHeader: React.FC<TableHeaderProps> = ({
   title,
   description,
-  projectName,
+  projectNumbers,
 }) => {
-  const [projectNumbers, setProjectNumbers] = useState<number | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { projectNumbers } = await getProjectDetails(projectName);
-        setProjectNumbers(projectNumbers);
-      } catch (error) {
-        console.error("Error fetching project details", error);
-        setProjectNumbers(0);
-      }
-    };
-
-    fetchData();
-  }, [projectName]);
-
-  if (projectNumbers === null) {
-    return <div>Loading...</div>;
-  }
-
   if (projectNumbers === 0) {
     return (
       <div className="flex mt-8 justify-center" aria-label="Error">

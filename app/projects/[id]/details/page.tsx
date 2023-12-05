@@ -1,9 +1,12 @@
 import { Table } from "@/components/Table/Table";
 import { TableHeader } from "@/components/TableHeader";
 import { capilatiseFirstLetter } from "@/lib/capitaliseFirstLetter";
+import { getProjectDetails } from "@/lib/getAllProjects";
 import Link from "next/link";
 
-export default function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { id: string } }) {
+  const { projectNumbers } = await getProjectDetails(params.id);
+
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <Link
@@ -18,7 +21,7 @@ export default function Page({ params }: { params: { id: string } }) {
           params.id
         )}. Top 10 entries are displayed`}
         title="Entries table"
-        projectName={params.id}
+        projectNumbers={projectNumbers}
       />
       <Table projectName={params.id} />
     </div>
