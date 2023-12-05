@@ -4,7 +4,11 @@ import { capilatiseFirstLetter } from "@/lib/capitaliseFirstLetter";
 import { getProjectDetails } from "@/lib/getAllProjects";
 import Link from "next/link";
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function ProjectDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const { projectNumbers } = await getProjectDetails(params.id);
 
   return (

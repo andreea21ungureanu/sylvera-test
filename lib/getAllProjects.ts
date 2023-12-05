@@ -20,7 +20,6 @@ export async function getProjectDetails(
 ): Promise<ProjectDetailsProps> {
   const projectsDetails = await fetchProjectDeviceDetails(project);
   const projectFeeds = projectsDetails.feeds || [];
-  console.log(projectFeeds.length);
   return { projectFeeds, projectNumbers: projectFeeds.length };
 }
 
