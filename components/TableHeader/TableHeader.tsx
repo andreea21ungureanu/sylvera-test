@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
-import { getProjectDetails } from "@/lib/getAllProjects";
+import { getProjectDetails } from "../../lib/getAllProjects";
 
 type TableHeaderProps = {
   title: string;
