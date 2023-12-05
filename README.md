@@ -22,8 +22,12 @@ This project's goal is to display a list of projects and, in turn, present a tab
 Below you can find some of the technical details regarding the project from wireframes, to implementation details and further steps.
 
 ### How it works
+1. Main page
 Navigating to `https://sylvera-test.vercel.app/projects` reveals the page which contains a list of all the available projects.
+
+1. Details page
 When clicking on any of this projects in the list, the application redirects the user to `https://sylvera-test.vercel.app/projects/{project_name}/details`. Here, the number of entries in the table are displayed alongside with other relevant details about the project and each of the top 10 entries.
+You can you the `Return to projects` button to navigate back to the main page.
 
 ### Wireframes
 The following wireframes have been created and used in order to get a better visualisation of the application.
