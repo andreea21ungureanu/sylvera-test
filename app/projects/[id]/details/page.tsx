@@ -1,15 +1,9 @@
 import { Table } from "@/components/Table/Table";
 import { TableHeader } from "@/components/TableHeader";
 import { capilatiseFirstLetter } from "@/lib/capitaliseFirstLetter";
-import { getProjectDetails, getTableDetails } from "@/lib/getAllProjects";
 import Link from "next/link";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const projectDetails = await getProjectDetails(params.id);
-  const tableDetails = await getTableDetails(projectDetails);
-
-  if (!tableDetails.length) throw Error("No records on this page");
-
+export default function Page({ params }: { params: { id: string } }) {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <Link
@@ -22,10 +16,11 @@ export default async function Page({ params }: { params: { id: string } }) {
       <TableHeader
         description={`A list of all the details related to project ${capilatiseFirstLetter(
           params.id
-        )}`}
+        )}. Top 10 entries are displayed`}
         title="Entries table"
+        projectName={params.id}
       />
-      <Table tableDetails={tableDetails} />
+      <Table projectName={params.id} />
     </div>
   );
 }
